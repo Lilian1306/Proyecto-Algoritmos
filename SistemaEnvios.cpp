@@ -42,14 +42,14 @@ void SistemaEnvios::altaUsuario() {
     std::cout << "Nombre completo: ";
     getline(std::cin, nuevoUsuario.nombre);
     if (nuevoUsuario.nombre.empty()) {
-        std::cout << "\n>> Creacion cancelada. El nombre es obligatorio.\n";
+        std::cout << "\033[31mn>> Creacion cancelada. El nombre es obligatorio.\033[0m\n";
         return; 
     }
 
     std::cout << "Correo electronico: ";
     getline(std::cin, nuevoUsuario.email);
     if (nuevoUsuario.email.empty()) {
-        std::cout << "\n>> Creacion cancelada. El correo es obligatorio.\n";
+        std::cout << "\033[31mn>> Creacion cancelada. El correo es obligatorio.\033[0m\n";
         return; 
     }
 
@@ -59,7 +59,7 @@ void SistemaEnvios::altaUsuario() {
     std::cout << "Contrasena: ";
     getline(std::cin, nuevoUsuario.password);
     if (nuevoUsuario.password.empty()) {
-        std::cout << "\n>> Creacion cancelada. La contrasena es obligatoria.\n";
+        std::cout << "\033[31mn>> Creacion cancelada. La contrasena es obligatoria.\033[0m\n";
         return; 
     }
 
@@ -85,7 +85,7 @@ void SistemaEnvios::solicitarEnvio() {
     std::cin >> nuevoPaquete.peso;
 
     while(std::cin.fail()) {
-        std::cout << "Error: Por favor ingrese un numero.\n";
+        std::cout << "\033[31mError: Por favor ingrese un numero.\033[0m\n";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
         std::cout << "Peso del paquete (max 15 libras): ";
@@ -93,7 +93,7 @@ void SistemaEnvios::solicitarEnvio() {
     }
 
     if (nuevoPaquete.peso > 15.0) {
-        std::cout << "\n>> Error: El peso excede las 15 libras.\n";
+        std::cout << "\033[31mn>> Error: El peso excede las 15 libras.\033m\n";
         proximoIdPaquete--;
         return;
     }
@@ -164,7 +164,7 @@ void SistemaEnvios::generarReporte() {
 
 void SistemaEnvios::realizarPago() {
     if (!usuarioActual) {
-        std::cout << "Error: Debes iniciar Sesion primero.\n";
+        std::cout << "\033[31mError: Debes iniciar Sesion primero.\033[0m\n";
         return;
     }
 
@@ -264,7 +264,7 @@ void SistemaEnvios::asignarEnvio() {
 
     std::cout << "\nIngrese el ID de la solicitud a asignar: ";
     while (!(std::cin >> idSolicitud)) {
-        std::cout << ">> Error: Por favor, ingrese un numero de ID valido: ";
+        std::cout << "\033[31m>> Error: Por favor, ingrese un numero de ID valido:\033[0m\n";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
