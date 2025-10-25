@@ -4,7 +4,7 @@
 
 void leerOpcion(int& opcion) {
     while (!(std::cin >> opcion)) {
-        std::cout << "\n>> Error: Por favor, introduce un numero valido.\n";
+        std::cout << "\033[31m>> Error: Por favor, introduce un numero valido.\033[0m\n";
         std::cin.clear(); 
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
         std::cout << "Seleccione una Opcion: ";
@@ -31,7 +31,7 @@ void mostrarMenuAdmin(SistemaEnvios& sistema) {
             case 3: sistema.bajaUsuario(); break;
             case 4: sistema.generarReporte(); break;
             case 5: sistema.logout(); std::cout << "\n>> Sesion cerrada.\n"; break;
-            default: std::cout << "Opcion no valida.\n";
+            default: std::cout << "\033[31mOpcion no valida.\033[0m\n";
         }
     } while (opcion != 5); // 
 }
@@ -51,7 +51,7 @@ void mostrarMenuControlador(SistemaEnvios& sistema) {
             case 1: sistema.verSolicitudesPendientes(); break;
             case 2: sistema.asignarEnvio(); break;
             case 3: sistema.logout(); std::cout << "\n>> Sesion cerrada.\n"; break;
-            default: std::cout << "Opcion no valida.\n";
+            default: std::cout << "\033[31mOpcion no válida.\033[0m\n";
         }
     } while (opcion != 3);
 }
@@ -73,7 +73,7 @@ void mostrarMenuCliente(SistemaEnvios& sistema) {
             case 2: sistema.verMisEnvios(); break;
             case 3: sistema.realizarPago(); break;
             case 4: sistema.logout(); std::cout << "\n>> Sesion cerrada.\n"; break;
-            default: std::cout << "Opcion no valida.\n";
+            default: std::cout << "\033[31mOpcion no válida.\033[0m\n";
         }
     } while (opcion != 4);
 }
@@ -93,7 +93,7 @@ void mostrarMenuMensajero(SistemaEnvios& sistema) {
             case 1: sistema.verMisEntregasAsignadas(); break;
             case 2: sistema.marcarComoEntregado(); break;
             case 3: sistema.logout(); std::cout << "\n>> Sesion cerrada.\n"; break;
-            default: std::cout << "Opcion no valida.\n";
+            default: std::cout << "\033[31mOpcion no válida.\033[0m\n";
         }
     } while (opcion != 3);
 }
@@ -115,8 +115,7 @@ int main() {
 
         switch (opcion) {
             
-            // --- ESTA ES LA PARTE QUE FALTA Y DEBES REEMPLAZAR ---
-            case 1: { // Portal de Clientes
+            case 1: { 
                 int opcionCliente = 0;
                 do {
                     std::cout << "\n--- Portal de Clientes ---\n"
@@ -136,27 +135,27 @@ int main() {
                             if (sistema.login(email, password) && sistema.getUsuarioActual()->tipoUsuario == "Cliente") {
                                 mostrarMenuCliente(sistema);
                             } else {
-                                std::cout << "\n>> Error: Credenciales de CLIENTE incorrectas.\n";
-                                sistema.logout(); // Asegurarse de cerrar Sesionón
+                                std::cout << "\033[31m>> Error: Credenciales de CLIENTE incorrectas.\033[0m\n";
+                                sistema.logout(); 
                             }
                             break;
                         }
-                        case 2: { // Crear Cuenta
+                        case 2: { 
                             sistema.altaUsuario();
                             break;
                         }
-                        case 3: { // Volver
+                        case 3: {
                             break;
                         }
                         default: {
-                            std::cout << "Opcion no valida.\n";
+                            std::cout << "\033[31m>> Error:Opcion no valida.\033[0m\n";
                             break;
                         }
                     }
                 } while (opcionCliente != 3);
                 break;
             }
-            // --- FIN DE LA PARTE QUE FALTABA ---
+    
 
             case 2: 
             case 3:
@@ -175,19 +174,20 @@ int main() {
                     } else if (opcion == 4 && tipo == "Mensajero") {
                         mostrarMenuMensajero(sistema);
                     } else {
-                        std::cout << "\n>> Error: No tienes permiso para acceder a este panel.\n";
+                        std::cout << "\033[31mn>> Error: No tienes permiso para acceder a este panel.\033[0m\n";
                         sistema.logout();
                     }
                 } else {
-                    std::cout << "\n>> Error: Email o contrasena incorrectos.\n";
+                    std::cout << "\033[31m>> Error: Credenciales de ADMINISTRADOR incorrectas.\033[0m\n";
+                    sistema.logout(); 
                 }
                 break;
             }
-            case 5: { // Salir
+            case 5: { 
                 break; 
             }
             default: {
-                std::cout << "Opcion no valida.\n";
+                std::cout << "\033[31m>> Error:Opcion no valida.\033[0m\n";
             }
         }
     } while (opcion != 5); 
