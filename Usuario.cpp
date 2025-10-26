@@ -6,3 +6,5 @@ Usuario::Usuario(std::string id, std::string nom, std::string mail, std::string 
 }
 
 Usuario::Usuario() = default;
+
+// Leave a comment to not lose my daily goals in git hub
