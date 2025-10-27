@@ -53,10 +53,10 @@ El sistema ofrece diferentes funcionalidades según el rol del usuario que inici
     ```bash
     g++ Proyecto.cpp SistemaEnvios.cpp Usuario.cpp Paquete.cpp -o proyecto.exe -std=c++11
     ```
-    *Nota: `-std=c++11` es recomendable, aunque podría compilar sin él.*
+ 
 3.  **Ejecución:** Una vez compilado, ejecuta el programa:
     * En Windows: `.\proyecto.exe` o `proyecto.exe`
-    * En Linux/macOS: `./proyecto.exe` (o el nombre que le hayas dado)
+    * En Linux/macOS: `./proyecto.exe` 
 
 ## Uso
 
@@ -81,13 +81,10 @@ Los clientes también pueden crear sus propias cuentas desde el menú de cliente
 
 ## Posibles Mejoras (Trabajo Futuro)
 
-* Persistencia de datos (guardar/cargar usuarios y paquetes en archivos o base de datos).
-* Interfaz gráfica de usuario (GUI).
-* Reportes más detallados (por fecha, por cliente, ingresos).
 * Validaciones de entrada más robustas.
 * Notificaciones (simuladas) para el cliente/mensajero.
 
 ## Autor(a)
 
-* Lilian Elizabeth Tuyuc Tzaj
+* Lilian Tuyuc 
 
