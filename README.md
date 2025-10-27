@@ -51,7 +51,7 @@ El sistema ofrece diferentes funcionalidades según el rol del usuario que inici
 1.  **Requisitos:** Necesitas un compilador de C++ (como g++ instalado a través de MinGW en Windows, o el compilador estándar en Linux/macOS).
 2.  **Compilación:** Abre una terminal o línea de comandos en la carpeta donde están los archivos fuente y ejecuta:
     ```bash
-    g++ Proyecto.cpp SistemaEnvios.cpp Usuario.cpp Paquete.cpp -o proyecto.exe -std=c++11
+    g++ Proyecto.cpp SistemaEnvios.cpp Usuario.cpp Paquete.cpp -o proyecto.exe
     ```
  
 3.  **Ejecución:** Una vez compilado, ejecuta el programa:
@@ -71,18 +71,6 @@ Al ejecutar el programa, se presentará un menú principal para elegir el tipo d
 
 Los clientes también pueden crear sus propias cuentas desde el menú de cliente. Sigue las instrucciones en pantalla para navegar por los menús y utilizar las funcionalidades.
 
-## Estructura del Proyecto
-
-* `Proyecto.cpp`: Contiene la función `main`, los menús principales y la lógica de interacción con el usuario.
-* `SistemaEnvios.h` / `SistemaEnvios.cpp`: Clase principal que encapsula toda la lógica de negocio (gestión de usuarios, paquetes, estados, etc.).
-* `Usuario.h` / `Usuario.cpp`: Clase que define la estructura y datos de un usuario.
-* `Paquete.h` / `Paquete.cpp`: Clase que define la estructura y datos de un paquete/envío.
-* `proyecto.exe`: (Opcional) El ejecutable compilado.
-
-## Posibles Mejoras (Trabajo Futuro)
-
-* Validaciones de entrada más robustas.
-* Notificaciones (simuladas) para el cliente/mensajero.
 
 ## Autor(a)
 
