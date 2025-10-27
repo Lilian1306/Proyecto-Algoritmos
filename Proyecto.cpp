@@ -104,7 +104,11 @@ int main() {
     std::string email, password;
 
     do {
-        std::cout << "\n===== BIENVENIDO A ENVIOS GARANTIZADOS, S.A. =====\n"
+       std::cout  << "\n===== BIENVENIDO A ENVIOS GARANTIZADOS, S.A. =====\n"
+                  << "\x1B[3m"
+                  << "Nuestro horario de servicio es de lunes a sabado, de 8:00 a 18:00 horas.\n"
+                  << "\x1B[0m"
+                  << "\n"
                   << "1. Ingresar como Cliente\n"
                   << "2. Ingresar como Administrador\n"
                   << "3. Ingresar como Controlador\n" 
