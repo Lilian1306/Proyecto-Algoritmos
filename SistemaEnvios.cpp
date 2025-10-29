@@ -93,7 +93,7 @@ void SistemaEnvios::solicitarEnvio() {
     }
 
     if (nuevoPaquete.peso > 15.0) {
-        std::cout << "\033[31mn>> Error: El peso excede las 15 libras.\033m\n";
+        std::cout << "\033[31m>> Error: El peso excede las 15 libras.\033[0m\n";
         proximoIdPaquete--;
         return;
     }
